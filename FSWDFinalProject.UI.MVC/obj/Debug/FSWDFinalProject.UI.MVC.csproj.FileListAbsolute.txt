@@ -1,0 +1,12 @@
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\obj\Debug\FSWDFinalProject.UI.MVC.csprojAssemblyReference.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\obj\Debug\FSWDFinalProject.UI.MVC.csproj.CoreCompileInputs.cache
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.UI.MVC.dll.config
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.UI.MVC.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.UI.MVC.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.DATA.EF.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Newtonsoft.Json.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.DATA.EF.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\obj\Debug\FSWDFinalProject.UI.MVC.csproj.CopyComplete
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\obj\Debug\FSWDFinalProject.UI.MVC.dll
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\obj\Debug\FSWDFinalProject.UI.MVC.pdb
