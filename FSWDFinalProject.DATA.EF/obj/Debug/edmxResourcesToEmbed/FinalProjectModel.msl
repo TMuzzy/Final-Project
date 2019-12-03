@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FinalProjectModelStoreContainer" CdmEntityContainer="FinalProjectEntities">
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="FinalProjectModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="LocationName" ColumnName="LocationName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OwnerAssets">
+      <EntityTypeMapping TypeName="FinalProjectModel.OwnerAsset">
+        <MappingFragment StoreEntitySet="OwnerAssets">
+          <ScalarProperty Name="OwnerAssetID" ColumnName="OwnerAssetID" />
+          <ScalarProperty Name="AssetName" ColumnName="AssetName" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+          <ScalarProperty Name="AssetPhoto" ColumnName="AssetPhoto" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ReservedStatussID" ColumnName="ReservedStatussID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="FinalProjectModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservations">
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+          <ScalarProperty Name="OwnerAssetID" ColumnName="OwnerAssetID" />
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReservedStatuss">
+      <EntityTypeMapping TypeName="FinalProjectModel.ReservedStatus">
+        <MappingFragment StoreEntitySet="ReservedStatuss">
+          <ScalarProperty Name="ReservedStatussID" ColumnName="ReservedStatussID" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rooms">
+      <EntityTypeMapping TypeName="FinalProjectModel.Room">
+        <MappingFragment StoreEntitySet="Rooms">
+          <ScalarProperty Name="RoomID" ColumnName="RoomID" />
+          <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+          <ScalarProperty Name="RoomCapacity" ColumnName="RoomCapacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserDetails">
+      <EntityTypeMapping TypeName="FinalProjectModel.UserDetail">
+        <MappingFragment StoreEntitySet="UserDetails">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRes">
+      <EntityTypeMapping TypeName="FinalProjectModel.UserRe">
+        <MappingFragment StoreEntitySet="UserRes">
+          <ScalarProperty Name="UserResID" ColumnName="UserResID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ReservationID" ColumnName="ReservationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

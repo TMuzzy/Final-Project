@@ -1,4 +1,5 @@
-﻿using FSWDFinalProject.UI.MVC.Models;
+﻿using FSWDFinalProject.DATA.EF;
+using FSWDFinalProject.UI.MVC.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -153,11 +154,26 @@ namespace FSWDFinalProject.UI.MVC.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
-                    ViewBag.Link = callbackUrl;
-                    return View("DisplayEmail");
+                    //Dealing with custom user details
+                    UserDetail newUserDeets = new UserDetail();
+                    newUserDeets.UserID = user.Id;
+                    newUserDeets.FirstName = model.FirstName;
+                    newUserDeets.LastName = model.LastName;
+
+                    FinalProjectEntities db = new FinalProjectEntities();
+                    db.UserDetails.Add(newUserDeets);
+                    db.SaveChanges();
+
+                    //Add a default role when a new user is created using the Register Link in the website
+                    UserManager.AddToRole(user.Id, "User");
+
+                    //var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking this link: <a href=\"" + callbackUrl + "\">link</a>");
+                    //ViewBag.Link = callbackUrl;
+                    //return View("DisplayEmail");
+
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }

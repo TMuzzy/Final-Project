@@ -55,6 +55,7 @@ C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProje
 C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Microsoft.Owin.Security.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Newtonsoft.Json.dll
 C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.DATA.EF.pdb
+C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\FSWDFinalProject.DATA.EF.dll.config
 C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Microsoft.Owin.xml
 C:\Users\student\Documents\Visual Studio 2017\Projects\11_PROJECT\FSWDFinalProject\src\FSWDFinalProject.UI.MVC\bin\Microsoft.Owin.Security.xml
