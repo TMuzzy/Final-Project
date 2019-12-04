@@ -42,11 +42,12 @@
                                 <li>@Html.ActionLink("About", "About", "Home")</li>
                                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                                 <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                                <li>@Html.ActionLink("Reservations", "Index", "Reservations")</li>
                                 @*@if (Request.IsAuthenticated && User.IsInRole("User"))
-                                {
-                                    <li>@Html.ActionLink("", "", "")</li>
-                                    <li>@Html.ActionLink("", "", "")</li>
-                                }*@
+        {
+            <li>@Html.ActionLink("", "", "")</li>
+            <li>@Html.ActionLink("", "", "")</li>
+        }*@
                                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                                 {
                                     <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>

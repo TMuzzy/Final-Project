@@ -11,6 +11,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class LocationMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "Location")]
         public int LocationID { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -50,6 +51,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class OwnerAssetMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "Event")]
         public int OwnerAssetID { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -85,6 +87,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class ReservationMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "Reservation")]
         public int ReservationID { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -116,6 +119,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class ReservedStatuMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "Reserved Status")]
         public int ReservedStatusID { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -141,6 +145,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class RoomMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "Room")]
         public int RoomID { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -165,6 +170,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class UserDetailMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "User")]
         public string UserID { get; set; }
 
         [Required(ErrorMessage = "*")]
@@ -189,6 +195,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
     public class UserReMetadata
     {
         [Required(ErrorMessage = "*")]
+        [Display(Name = "User Reserved")]
         public int UserResID { get; set; }
 
         [Required(ErrorMessage = "*")]

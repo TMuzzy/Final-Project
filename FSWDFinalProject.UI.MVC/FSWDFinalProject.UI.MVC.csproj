@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
     <Compile Include="Global.asax.cs">
@@ -591,6 +592,11 @@
     <Content Include="Views\Locations\Edit.cshtml" />
     <Content Include="Views\Locations\Index.cshtml" />
     <Content Include="_Archive\Content Commented.cshtml" />
+    <Content Include="Views\Reservations\Create.cshtml" />
+    <Content Include="Views\Reservations\Delete.cshtml" />
+    <Content Include="Views\Reservations\Details.cshtml" />
+    <Content Include="Views\Reservations\Edit.cshtml" />
+    <Content Include="Views\Reservations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
