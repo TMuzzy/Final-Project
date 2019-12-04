@@ -171,6 +171,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
@@ -188,6 +189,7 @@
     <Content Include="Content\css\aos.css" />
     <Content Include="Content\css\bootstrap-datepicker.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\custom.css" />
     <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\jquery.fancybox.min.css" />
     <Content Include="Content\css\magnific-popup.css" />
@@ -583,6 +585,12 @@
     <Content Include="_Archive\warehouse\scss\_site-blocks.scss" />
     <Content Include="_Archive\warehouse\scss\_site-navbar.scss" />
     <Content Include="Views\Shared\_LayoutOriginal.cshtml" />
+    <Content Include="Views\Locations\Create.cshtml" />
+    <Content Include="Views\Locations\Delete.cshtml" />
+    <Content Include="Views\Locations\Details.cshtml" />
+    <Content Include="Views\Locations\Edit.cshtml" />
+    <Content Include="Views\Locations\Index.cshtml" />
+    <Content Include="_Archive\Content Commented.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

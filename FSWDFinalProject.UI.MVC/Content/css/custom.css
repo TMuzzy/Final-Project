@@ -1,0 +1,12 @@
+﻿.blackgodmode a{
+    color: black !important;
+}
+
+.padme{
+    padding-top: 3em;
+}
+
+.header-override {
+    background: rgb(55,207,162);
+    background: linear-gradient(180deg, rgba(55,207,162,1) 0%, rgba(55,207,162,1) 78%, rgba(0,212,255,0) 94%);
+}
