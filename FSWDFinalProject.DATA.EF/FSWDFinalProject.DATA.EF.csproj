@@ -68,6 +68,7 @@
     <Compile Include="Location.cs">
       <DependentUpon>FInalProject.tt</DependentUpon>
     </Compile>
+    <Compile Include="Metadata\Metadata.cs" />
     <Compile Include="OwnerAsset.cs">
       <DependentUpon>FInalProject.tt</DependentUpon>
     </Compile>
