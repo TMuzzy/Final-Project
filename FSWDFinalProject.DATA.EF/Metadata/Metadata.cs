@@ -155,7 +155,6 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
 
         [Required(ErrorMessage = "*")]
         [Display(Name = "Capacity Limit")]
-        [MaxLength(ErrorMessage = "Must be less than 2,147,483,647.")]
         public int RoomCapacity { get; set; }
     }
 

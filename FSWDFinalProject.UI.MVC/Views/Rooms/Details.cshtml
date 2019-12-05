@@ -1,0 +1,32 @@
+﻿@model FSWDFinalProject.DATA.EF.Room
+
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.RoomName);
+}
+
+<h2 class="padme">@ViewBag.Title</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomName)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomCapacity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

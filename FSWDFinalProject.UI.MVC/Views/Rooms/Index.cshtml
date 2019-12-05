@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FSWDFinalProject.DATA.EF.Room>
+
+@{
+    ViewBag.Title = "Rooms";
+}
+
+<h2 class="padme">@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoomCapacity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomCapacity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoomID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoomID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoomID })
+        </td>
+    </tr>
+}
+
+</table>
