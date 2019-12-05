@@ -173,6 +173,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OwnerAssetsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
@@ -603,6 +604,11 @@
     <Content Include="Views\UserDetails\Details.cshtml" />
     <Content Include="Views\UserDetails\Edit.cshtml" />
     <Content Include="Views\UserDetails\Index.cshtml" />
+    <Content Include="Views\OwnerAssets\Create.cshtml" />
+    <Content Include="Views\OwnerAssets\Delete.cshtml" />
+    <Content Include="Views\OwnerAssets\Details.cshtml" />
+    <Content Include="Views\OwnerAssets\Edit.cshtml" />
+    <Content Include="Views\OwnerAssets\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
