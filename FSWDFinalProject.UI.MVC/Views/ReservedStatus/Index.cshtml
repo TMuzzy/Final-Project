@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FSWDFinalProject.DATA.EF.ReservedStatu>
+
+@{
+    ViewBag.Title = "Reservation Status";
+}
+
+<h2 class="padme">@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StatusName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReservedStatusID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReservedStatusID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReservedStatusID })
+        </td>
+    </tr>
+}
+
+</table>

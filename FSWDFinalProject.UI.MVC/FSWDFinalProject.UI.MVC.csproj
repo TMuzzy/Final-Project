@@ -175,6 +175,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OwnerAssetsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
+    <Compile Include="Controllers\ReservedStatusController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\UserAdminController.cs" />
@@ -615,6 +616,11 @@
     <Content Include="Views\Rooms\Details.cshtml" />
     <Content Include="Views\Rooms\Edit.cshtml" />
     <Content Include="Views\Rooms\Index.cshtml" />
+    <Content Include="Views\ReservedStatus\Create.cshtml" />
+    <Content Include="Views\ReservedStatus\Delete.cshtml" />
+    <Content Include="Views\ReservedStatus\Details.cshtml" />
+    <Content Include="Views\ReservedStatus\Edit.cshtml" />
+    <Content Include="Views\ReservedStatus\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
