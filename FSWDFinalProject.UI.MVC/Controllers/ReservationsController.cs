@@ -54,9 +54,31 @@ namespace FSWDFinalProject.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Reservations.Add(reservation);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.Error = 0;
+                var resDate = reservation.ReservationDate;
+                var resRoom = reservation.RoomID;
+
+                FinalProjectEntities ctx = new FinalProjectEntities();
+                var checkDate = (from r in ctx.Reservations
+                               where r.ReservationDate == resDate
+                               select r).Count();
+
+                var checkRoom = (from r in ctx.Reservations
+                                where r.RoomID == resRoom
+                                select r).Count();
+
+
+                if (checkDate >= 1 && checkRoom >= 1)
+                {
+                    ViewBag.ErrorMessage = "The room you selected is already reserved for that date. Either pick a new room, or pick a new date.";
+                    ViewBag.Error = 1;
+                }
+                else
+                {
+                    db.Reservations.Add(reservation);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
 
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", reservation.LocationID);
@@ -92,9 +114,25 @@ namespace FSWDFinalProject.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(reservation).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                ViewBag.Error = 0;
+
+                FinalProjectEntities ctx = new FinalProjectEntities();
+
+                var checkResID = (from r in ctx.Reservations
+                                  where r.ReservationID != reservation.ReservationID && r.LocationID == reservation.LocationID && r.RoomID == reservation.RoomID && r.ReservationDate == reservation.ReservationDate
+                                  select r).Count();
+
+                if (checkResID == 1)
+                {
+                    ViewBag.ErrorMessage = "The room you selected is already reserved for that date. Either pick a new room, or pick a new date.";
+                    ViewBag.Error = 1;
+                }
+                else
+                {
+                    db.Entry(reservation).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName", reservation.LocationID);
             ViewBag.OwnerAssetID = new SelectList(db.OwnerAssets, "OwnerAssetID", "AssetName", reservation.OwnerAssetID);
