@@ -4,13 +4,13 @@
     ViewBag.Title = "Remove";
 }
 
-<h2 class="padme"></h2>
+<h2 style="padding-top: 4em;"></h2>
 
-<h3>Are you sure you want to remove @Html.DisplayFor(model => model.OwnerAsset.AssetName)?</h3>
-<div>
-    <dl class="dl-horizontal">
 
-        @*<dt>
+<div class="container justify-content-center border1 col-md-8" style="margin-bottom: 1.5em;">
+    <h3 class="text-center" style="padding-top: 15px;">Are you sure you want to remove <span style="color: red;">@Html.DisplayFor(model => model.OwnerAsset.AssetName)</span>?</h3>
+
+    @*<dt>
             @Html.DisplayNameFor(model => model.OwnerAsset.AssetName)
         </dt>
 
@@ -18,38 +18,47 @@
             @Html.DisplayFor(model => model.OwnerAsset.AssetName)
         </dd>*@
 
-        <dt>
+    <div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.Location.LocationName)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.Location.LocationName)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
+    <div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.ReservationDate)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.ReservationDate)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
+    <div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.Room.RoomName)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.Room.RoomName)
-        </dd>
+        </div>
+    </div>
 
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="row button-styling">
+            <div class="col-md-10" style="padding-left: 2.5em;">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+            <div class="">
+                @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+            </div>
         </div>
     }
 </div>

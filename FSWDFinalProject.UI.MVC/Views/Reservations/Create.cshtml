@@ -4,61 +4,72 @@
     ViewBag.Title = "Add New Reservation";
 }
 
-<h2 class="padme">@ViewBag.Title</h2>
+<h2 class="padme"></h2>
 
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
+<div class="container justify-content-center border1" style="margin-bottom: 1.5em;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.OwnerAssetID, "Event", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("OwnerAssetID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.OwnerAssetID, "", new { @class = "text-danger" })
+        <h2 class="text-center" style="padding-top: 0.5em;">@ViewBag.Title</h2>
+        <div>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row" style="padding-top: 1.5em;">
+                <div class="col-md-4" style="text-align: right;">
+                    @Html.LabelFor(model => model.OwnerAssetID, "Event", htmlAttributes: new { @class = "" })
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownList("OwnerAssetID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.OwnerAssetID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: .5em;">
+                <div class="col-md-4" style="text-align: right;">
+                    @Html.LabelFor(model => model.LocationID, "Location", htmlAttributes: new { @class = "" })
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownList("LocationID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LocationID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="row" style="padding-top: .5em;">
+                <div class="col-md-4" style="text-align: right;">
+                    @Html.LabelFor(model => model.ReservationDate, htmlAttributes: new { @class = "" })
+                </div>
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.ReservationDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ReservationDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: .5em;">
+                <div class="col-md-4" style="text-align: right;">
+                    @Html.LabelFor(model => model.RoomID, "Room", htmlAttributes: new { @class = "" })
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownList("RoomID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="row button-styling">
+                <div class="col-md-10" style="padding-left: 2.5em;">
+                    <input type="submit" value="Add" class="btn btn-primary" />
+                    @if (ViewBag.Error == 1)
+                    {
+                        @ViewBag.ErrorMessage
+                    }
+                </div>
+                <div>
+                    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-secondary" })
+                </div>
             </div>
         </div>
-    
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.LocationID, "Location", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("LocationID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.LocationID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReservationDate, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ReservationDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReservationDate, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.RoomID, "Room", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("RoomID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.RoomID, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-                @if (ViewBag.Error == 1)
-                {
-                    @ViewBag.ErrorMessage
-                }
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    }
 </div>
 
 @section Scripts {
