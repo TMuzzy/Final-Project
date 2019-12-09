@@ -622,6 +622,7 @@
     <Content Include="Views\ReservedStatus\Details.cshtml" />
     <Content Include="Views\ReservedStatus\Edit.cshtml" />
     <Content Include="Views\ReservedStatus\Index.cshtml" />
+    <Content Include="Views\Locations\CreateOriginal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
