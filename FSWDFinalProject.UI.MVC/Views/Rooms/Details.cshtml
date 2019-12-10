@@ -4,11 +4,10 @@
     ViewBag.Title = Html.DisplayFor(model => model.RoomName);
 }
 
-<h2 class="padme">@ViewBag.Title</h2>
+<h2 class="padme"></h2>
 
-<div>
-    <dl class="dl-horizontal">
-        @*<dt>
+<div class="container justify-content-center border1 col-md-6" style="margin-bottom: 1.5em;">
+    @*<dt>
             @Html.DisplayNameFor(model => model.RoomName)
         </dt>
 
@@ -16,17 +15,24 @@
             @Html.DisplayFor(model => model.RoomName)
         </dd>*@
 
-        <dt>
+    <h2 class="text-center" style="padding-top: .5em;">@ViewBag.Title</h2>
+
+    <dl>
+        <dt class="details-content-l">
             @Html.DisplayNameFor(model => model.RoomCapacity)
         </dt>
 
-        <dd>
+        <dd class="details-content-r">
             @Html.DisplayFor(model => model.RoomCapacity)
         </dd>
-
     </dl>
+
+    <div class="row button-styling">
+        <div class="col-md-9" style="padding-left: 2.5em;">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }, new { @class = "btn btn-primary" })
+        </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-secondary" })
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
