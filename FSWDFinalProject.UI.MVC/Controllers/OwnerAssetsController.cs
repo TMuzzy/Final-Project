@@ -21,6 +21,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(ownerAssets.ToList());
         }
 
+        [Authorize(Roles = "User")]
         // GET: OwnerAssets/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,10 +50,32 @@ namespace FSWDFinalProject.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "OwnerAssetID,AssetName,OwnerID,AssetPhoto,Description,ReservedStatusID")] OwnerAsset ownerAsset)
+        public ActionResult Create([Bind(Include = "OwnerAssetID,AssetName,OwnerID,AssetPhoto,Description,ReservedStatusID")] OwnerAsset ownerAsset, HttpPostedFileBase assetPhoto)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+                string imageName = "noImage.png";
+
+                if (assetPhoto != null)
+                {
+                    imageName = assetPhoto.FileName;
+                    string ext = imageName.Substring(imageName.LastIndexOf("."));
+                    string[] goodExts = new string[] { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext.ToLower()))
+                    {
+                        imageName = Guid.NewGuid() + ext;
+                        assetPhoto.SaveAs(Server.MapPath("~/Content/images/uploads/" + imageName));
+                    }
+                    else
+                    {
+                        imageName = "noImage.png";
+                    }
+                }
+                ownerAsset.AssetPhoto = imageName;
+                #endregion
+
                 db.OwnerAssets.Add(ownerAsset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -85,10 +108,30 @@ namespace FSWDFinalProject.UI.MVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "OwnerAssetID,AssetName,OwnerID,AssetPhoto,Description,ReservedStatusID")] OwnerAsset ownerAsset)
+        public ActionResult Edit([Bind(Include = "OwnerAssetID,AssetName,OwnerID,AssetPhoto,Description,ReservedStatusID")] OwnerAsset ownerAsset, HttpPostedFileBase assetPhoto)
         {
             if (ModelState.IsValid)
             {
+                #region File Upload
+                if (assetPhoto != null)
+                {
+                    string imageName = assetPhoto.FileName;
+                    string ext = imageName.Substring(imageName.LastIndexOf("."));
+                    string[] goodExts = new string[] { ".jpeg", ".jpg", ".png", ".gif" };
+
+                    if (goodExts.Contains(ext.ToLower()))
+                    {
+                        imageName = Guid.NewGuid() + ext;
+                        assetPhoto.SaveAs(Server.MapPath("~/Content/images/uploads/" + imageName));
+                        string currentFile = Request.Params["AssetPhoto"];
+                        if (currentFile != "noImage.png" && currentFile != null)
+                        {
+                            //System.IO.File.Delete(Server.MapPath("~/Content/images/uploads/" + currentFile));
+                        }
+                    }
+                    ownerAsset.AssetPhoto = imageName;
+                }
+                #endregion
                 db.Entry(ownerAsset).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

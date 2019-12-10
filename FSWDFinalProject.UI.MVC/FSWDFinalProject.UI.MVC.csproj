@@ -236,6 +236,7 @@
     <Content Include="Content\images\slide_2.jpg" />
     <Content Include="Content\images\slide_3.jpg" />
     <Content Include="Content\images\slide_4.jpg" />
+    <Content Include="Content\images\uploads\noImage.png" />
     <Content Include="Content\js\aos.js" />
     <Content Include="Content\js\bootstrap-datepicker.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />

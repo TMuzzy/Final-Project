@@ -41,23 +41,31 @@
                                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                 <li>@Html.ActionLink("About", "About", "Home")</li>
                                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
-                                <li>@Html.ActionLink("Rooms", "Index", "Rooms")</li>
-                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("Admin"))
                                 {
-
-                                    <li>@Html.ActionLink("Reservations", "Index", "Reservations")</li>
-                                    <li>@Html.ActionLink("User Details", "Index", "UserDetails")</li>
-                                    <li>@Html.ActionLink("Your Events", "Index", "OwnerAssets")</li>
-
+                                    <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
                                 }
-                                <li>@Html.ActionLink("Reservation Status", "Index", "ReservedStatus")</li>
-                                @*@if (Request.IsAuthenticated && User.IsInRole("User"))
-        {
-            <li>@Html.ActionLink("", "", "")</li>
-            <li>@Html.ActionLink("", "", "")</li>
-        }*@
-                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("Admin") || Request.IsAuthenticated && User.IsInRole("Employee") || Request.IsAuthenticated && User.IsInRole("User"))
+                                {
+                                    <li>@Html.ActionLink("Reservations", "Index", "Reservations")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                                {
+                                    <li>@Html.ActionLink("User Details", "Index", "UserDetails")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("User"))
+                                {
+                                    <li>@Html.ActionLink("Your Events", "Index", "OwnerAssets")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                                {
+                                    <li>@Html.ActionLink("Rooms", "Index", "Rooms")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin"))
+                                {
+                                    <li>@Html.ActionLink("Reservation Status", "Index", "ReservedStatus")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("Admin"))
                                 {
                                     <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
                                     <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
@@ -108,6 +116,12 @@
     <script src="~/Content/js/jquery.fancybox.min.js"></script>
     @*<script src="~/Content/js/jquery.sticky.js"></script>*@
     <script src="~/Content/js/main.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+            $("#datepicker").datepicker("option", "showAnim", 'slideDown');
+        });
+    </script>
 
     @RenderSection("Scripts", required: false)
 

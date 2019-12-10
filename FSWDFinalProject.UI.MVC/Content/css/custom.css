@@ -48,3 +48,25 @@ html, body{
 .details-content-r{
     margin-left: 50%;
 }
+
+#datepicker {
+    position: relative;
+    z-index: 100000;
+}
+
+.datepicker.datepicker-dropdown.dropdown-menu.datepicker-orient-left.datepicker-orient-top {
+    top: 320.4px !important;
+    left: 490.1px !important;
+    display: block;
+}
+
+.datepicker-dropdown.datepicker-orient-top:after {
+    top: -7px !important;
+    left: 6px !important;
+    border-bottom: none !important;
+}
+
+img.custom-image{
+    width: 20%;
+    height: auto;
+}

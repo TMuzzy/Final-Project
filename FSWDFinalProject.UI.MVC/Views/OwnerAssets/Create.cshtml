@@ -35,13 +35,22 @@
                 </div>
             </div>
 
-            <div class="row" style="padding-top: .5em;">
+            @*<div class="row" style="padding-top: .5em;">
                 <div class="col-md-4" style="text-align: right;">
                     @Html.LabelFor(model => model.AssetPhoto, "Photo", htmlAttributes: new { @class = "" })
                 </div>
                 <div class="col-md-6">
                     @Html.EditorFor(model => model.AssetPhoto, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.AssetPhoto, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div class="row" style="padding-top: .5em;">
+                <div class="col-md-4" style="text-align: right;">
+                    <img src="~/Content/images/uploads/noImage.png" class="custom-image" />
+                </div>
+                <div class="col-md-6">
+                    <input type="file" name="AssetPhoto" />
                 </div>
             </div>
 
