@@ -4,54 +4,58 @@
     ViewBag.Title = "Your Events";
 }
 
-<h2 class="padme">@ViewBag.Title</h2>
+<h2 class="padme"></h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AssetPhoto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReservedStatu.StatusName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserDetail.FirstName)
-        </th>
-        <th></th>
-    </tr>
+<div class="container col-md-10 border1" style="margin-bottom: 1.5em;">
+    <h2 style="padding-top: .5em;">@ViewBag.Title @Html.ActionLink("Add New Event", "Create", "", new { @class = "btn btn-primary" })</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssetPhoto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReservedStatu.StatusName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserDetail.FirstName)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssetPhoto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReservedStatu.StatusName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserDetail.FirstName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OwnerAssetID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OwnerAssetID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OwnerAssetID })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssetPhoto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservedStatu.StatusName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetail.FirstName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OwnerAssetID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { id = item.OwnerAssetID }, new { @class = "btn btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OwnerAssetID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

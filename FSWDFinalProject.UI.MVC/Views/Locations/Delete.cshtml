@@ -59,13 +59,13 @@
     {
         @Html.AntiForgeryToken()
 
-    <div class="row button-styling">
-        <div class="col-md-10" style="padding-left: 2.5em;">
-            <input type="submit" value="Delete" class="btn btn-danger" />
+        <div class="row button-styling">
+            <div class="col-md-10" style="padding-left: 2.5em;">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+            <div class="">
+                @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+            </div>
         </div>
-        <div class="">
-            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
-        </div>
-    </div>
     }
 </div>

@@ -63,6 +63,7 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
         [Display(Name = "Owner")]
         public string OwnerID { get; set; }
 
+        [Display(Name = "Photo")]
         public string AssetPhoto { get; set; }
 
         [Display(Name = "Description")]

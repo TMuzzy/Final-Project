@@ -4,12 +4,11 @@
     ViewBag.Title = "Remove";
 }
 
-<h2 class="padme"></h2>
+<h2 style="padding-top: 4em;"></h2>
 
-<h3>Are you sure you want to remove @Html.DisplayFor(model => model.AssetName)?</h3>
-<div>
-    <dl class="dl-horizontal">
-        @*<dt>
+<div class="container justify-content-center border1 col-md-8" style="margin-bottom: 1.5em;">
+    <h3 class="text-center" style="padding-top: 15px;">Are you sure you want to remove <span style="color: red;">@Html.DisplayFor(model => model.AssetName)</span>?</h3>
+    @*<dt>
             @Html.DisplayNameFor(model => model.AssetName)
         </dt>
 
@@ -17,46 +16,56 @@
             @Html.DisplayFor(model => model.AssetName)
         </dd>*@
 
-        <dt>
+    @*<div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.AssetPhoto)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.AssetPhoto)
-        </dd>
+        </div>
+    </div>*@
 
-        <dt>
+    <div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.Description)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.Description)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
+    <div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.ReservedStatu.StatusName)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.ReservedStatu.StatusName)
-        </dd>
+        </div>
+    </div>
 
-        <dt>
+    <div class="">
+        <div class="details-content-l">
             @Html.DisplayNameFor(model => model.UserDetail.FirstName)
-        </dt>
+        </div>
 
-        <dd>
+        <div class="details-content-r">
             @Html.DisplayFor(model => model.UserDetail.FirstName)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="row button-styling">
+            <div class="col-md-10" style="padding-left: 2.5em;">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+            </div>
+            <div class="">
+                @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary" })
+            </div>
         </div>
     }
 </div>
