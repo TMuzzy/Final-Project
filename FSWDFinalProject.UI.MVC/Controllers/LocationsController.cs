@@ -14,12 +14,14 @@ namespace FSWDFinalProject.UI.MVC.Controllers
     {
         private FinalProjectEntities db = new FinalProjectEntities();
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // GET: Locations
         public ActionResult Index()
         {
             return View(db.Locations.ToList());
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // GET: Locations/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,12 +37,14 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // GET: Locations/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // POST: Locations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,6 +62,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // GET: Locations/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -73,6 +78,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // POST: Locations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -89,6 +95,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // GET: Locations/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -104,6 +111,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(location);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         // POST: Locations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

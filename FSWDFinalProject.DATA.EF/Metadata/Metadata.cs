@@ -59,7 +59,6 @@ namespace FSWDFinalProject.DATA.EF//.Metadata
         [StringLength(50, ErrorMessage = "Must be 50 characters or less.")]
         public string AssetName { get; set; }
 
-        [Required(ErrorMessage = "*")]
         [Display(Name = "Owner")]
         public string OwnerID { get; set; }
 

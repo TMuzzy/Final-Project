@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FSWDFinalProject.DATA.EF;
+using Microsoft.AspNet.Identity;
 
 namespace FSWDFinalProject.UI.MVC.Controllers
 {
@@ -14,13 +15,22 @@ namespace FSWDFinalProject.UI.MVC.Controllers
     {
         private FinalProjectEntities db = new FinalProjectEntities();
 
+        [Authorize(Roles = "User, Admin, Employee, SuperAdmin")]
         // GET: Reservations
         public ActionResult Index()
         {
             var reservations = db.Reservations.Include(r => r.Location).Include(r => r.OwnerAsset).Include(r => r.Room);
+
+            if (User.IsInRole("User"))
+            {
+                string userid = User.Identity.GetUserId();
+                reservations = db.Reservations.Where(x => x.OwnerAsset.OwnerID == userid);
+            }
+            
             return View(reservations.ToList());
         }
 
+        [Authorize(Roles = "User, Admin, SuperAdmin")]
         // GET: Reservations/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,15 +46,18 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "User")]
         // GET: Reservations/Create
         public ActionResult Create()
         {
+            string UserId = User.Identity.GetUserId();
             ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "LocationName");
-            ViewBag.OwnerAssetID = new SelectList(db.OwnerAssets, "OwnerAssetID", "AssetName");
+            ViewBag.OwnerAssetID = new SelectList(db.OwnerAssets.Where(o => o.OwnerID == UserId), "OwnerAssetID", "AssetName");
             ViewBag.RoomID = new SelectList(db.Rooms, "RoomID", "RoomName");
             return View();
         }
 
+        [Authorize(Roles = "User")]
         // POST: Reservations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -54,6 +67,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 ViewBag.Error = 0;
                 var resDate = reservation.ReservationDate;
                 var resRoom = reservation.RoomID;
@@ -66,7 +80,6 @@ namespace FSWDFinalProject.UI.MVC.Controllers
                 var checkRoom = (from r in ctx.Reservations
                                 where r.RoomID == resRoom
                                 select r).Count();
-
 
                 if (checkDate >= 1 && checkRoom >= 1)
                 {
@@ -87,6 +100,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "User")]
         // GET: Reservations/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -105,6 +119,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "User")]
         // POST: Reservations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -140,6 +155,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "User")]
         // GET: Reservations/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -155,6 +171,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "User")]
         // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

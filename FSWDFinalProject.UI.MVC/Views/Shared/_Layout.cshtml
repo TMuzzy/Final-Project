@@ -41,11 +41,11 @@
                                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                 <li>@Html.ActionLink("About", "About", "Home")</li>
                                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("Admin"))
+                                @if ((Request.IsAuthenticated && User.IsInRole("SuperAdmin")) || (Request.IsAuthenticated && User.IsInRole("Admin")))
                                 {
                                     <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
                                 }
-                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("Admin") || Request.IsAuthenticated && User.IsInRole("Employee") || Request.IsAuthenticated && User.IsInRole("User"))
+                                @if ((Request.IsAuthenticated && User.IsInRole("SuperAdmin")) || (Request.IsAuthenticated && User.IsInRole("Admin")) || (Request.IsAuthenticated && User.IsInRole("Employee")) || (Request.IsAuthenticated && User.IsInRole("User")))
                                 {
                                     <li>@Html.ActionLink("Reservations", "Index", "Reservations")</li>
                                 }
@@ -53,7 +53,7 @@
                                 {
                                     <li>@Html.ActionLink("User Details", "Index", "UserDetails")</li>
                                 }
-                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("User"))
+                                @if ((Request.IsAuthenticated && User.IsInRole("SuperAdmin")) || (Request.IsAuthenticated && User.IsInRole("User")))
                                 {
                                     <li>@Html.ActionLink("Your Events", "Index", "OwnerAssets")</li>
                                 }
@@ -65,7 +65,7 @@
                                 {
                                     <li>@Html.ActionLink("Reservation Status", "Index", "ReservedStatus")</li>
                                 }
-                                @if (Request.IsAuthenticated && User.IsInRole("SuperAdmin") || Request.IsAuthenticated && User.IsInRole("Admin"))
+                                @if ((Request.IsAuthenticated && User.IsInRole("SuperAdmin")) || (Request.IsAuthenticated && User.IsInRole("Admin")))
                                 {
                                     <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
                                     <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using FSWDFinalProject.DATA.EF;
+using Microsoft.AspNet.Identity;
 
 namespace FSWDFinalProject.UI.MVC.Controllers
 {
@@ -14,14 +15,32 @@ namespace FSWDFinalProject.UI.MVC.Controllers
     {
         private FinalProjectEntities db = new FinalProjectEntities();
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // GET: OwnerAssets
         public ActionResult Index()
         {
+
+            string userID = User.Identity.GetUserId();
+
+            FinalProjectEntities ctx = new FinalProjectEntities();
+            if (!User.IsInRole("SuperAdmin"))
+            {
+                var checkUser = from e in ctx.OwnerAssets
+                                where e.OwnerID == userID
+                                select e;
+
+                var ownerAssets = db.OwnerAssets.Include(o => o.ReservedStatu).Include(o => o.UserDetail);
+                ViewBag.userID = userID;
+                return View(checkUser.ToList());
+            }
+            else { 
             var ownerAssets = db.OwnerAssets.Include(o => o.ReservedStatu).Include(o => o.UserDetail);
-            return View(ownerAssets.ToList());
+            ViewBag.userID = userID;
+            return View(db.OwnerAssets.ToList());
+            }
         }
 
-        [Authorize(Roles = "User")]
+        [Authorize(Roles = "SuperAdmin, User")]
         // GET: OwnerAssets/Details/5
         public ActionResult Details(int? id)
         {
@@ -37,6 +56,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(ownerAsset);
         }
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // GET: OwnerAssets/Create
         public ActionResult Create()
         {
@@ -45,6 +65,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View();
         }
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // POST: OwnerAssets/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -54,6 +75,8 @@ namespace FSWDFinalProject.UI.MVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                ownerAsset.OwnerID = User.Identity.GetUserId();
+
                 #region File Upload
                 string imageName = "noImage.png";
 
@@ -86,6 +109,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(ownerAsset);
         }
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // GET: OwnerAssets/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -103,6 +127,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(ownerAsset);
         }
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // POST: OwnerAssets/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -141,6 +166,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(ownerAsset);
         }
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // GET: OwnerAssets/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -156,6 +182,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(ownerAsset);
         }
 
+        [Authorize(Roles = "SuperAdmin, User")]
         // POST: OwnerAssets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

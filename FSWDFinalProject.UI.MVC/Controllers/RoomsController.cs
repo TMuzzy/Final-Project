@@ -14,12 +14,14 @@ namespace FSWDFinalProject.UI.MVC.Controllers
     {
         private FinalProjectEntities db = new FinalProjectEntities();
 
+        [Authorize(Roles = "SuperAdmin")]
         // GET: Rooms
         public ActionResult Index()
         {
             return View(db.Rooms.ToList());
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // GET: Rooms/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,12 +37,14 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(room);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // GET: Rooms/Create
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // POST: Rooms/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -58,6 +62,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(room);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // GET: Rooms/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -73,6 +78,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(room);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // POST: Rooms/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -89,6 +95,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(room);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // GET: Rooms/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -104,6 +111,7 @@ namespace FSWDFinalProject.UI.MVC.Controllers
             return View(room);
         }
 
+        [Authorize(Roles = "SuperAdmin")]
         // POST: Rooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

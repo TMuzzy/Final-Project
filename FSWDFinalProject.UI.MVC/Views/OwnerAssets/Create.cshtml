@@ -6,7 +6,6 @@
 
 <div style="padding: 3.5em;"></div>
 
-
 <div class="container justify-content-center border1" style="margin-bottom: 1.5em;">
     @using (Html.BeginForm())
     {
@@ -24,26 +23,40 @@
                     @Html.ValidationMessageFor(model => model.AssetName, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="row" style="padding-top: .5em;">
-                <div class="col-md-4" style="text-align: right;">
-                    @Html.LabelFor(model => model.OwnerID, "Owner", htmlAttributes: new { @class = "" })
+            @if (User.IsInRole("User"))
+            {
+                <div class="row" style="padding-top: .5em;">
+                    <div class="col-md-4" style="text-align: right;">
+                        @*@Html.LabelFor(model => model.OwnerID, "Owner", htmlAttributes: new { @class = "" })*@
+                    </div>
+                    <div class="col-md-6">
+                        @*@Html.DropDownList("OwnerID", null, htmlAttributes: new { @class = "form-control" })*@
+                        @*@Html.ValidationMessageFor(model => model.OwnerID, "", new { @class = "text-danger" })*@
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    @Html.DropDownList("OwnerID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.OwnerID, "", new { @class = "text-danger" })
+            }
+            else
+            {
+                <div class="row" style="padding-top: .5em;">
+                    <div class="col-md-4" style="text-align: right;">
+                        @Html.LabelFor(model => model.OwnerID, "Owner", htmlAttributes: new { @class = "" })
+                    </div>
+                    <div class="col-md-6">
+                        @Html.DropDownList("OwnerID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OwnerID, "", new { @class = "text-danger" })
+                    </div>
                 </div>
-            </div>
+            }
 
             @*<div class="row" style="padding-top: .5em;">
-                <div class="col-md-4" style="text-align: right;">
-                    @Html.LabelFor(model => model.AssetPhoto, "Photo", htmlAttributes: new { @class = "" })
-                </div>
-                <div class="col-md-6">
-                    @Html.EditorFor(model => model.AssetPhoto, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.AssetPhoto, "", new { @class = "text-danger" })
-                </div>
-            </div>*@
+            <div class="col-md-4" style="text-align: right;">
+                @Html.LabelFor(model => model.AssetPhoto, "Photo", htmlAttributes: new { @class = "" })
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.AssetPhoto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.AssetPhoto, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
             <div class="row" style="padding-top: .5em;">
                 <div class="col-md-4" style="text-align: right;">
